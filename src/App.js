@@ -1,15 +1,16 @@
 import React from "react";
 import LoginPage from "./components/LoginPage";
-
-
+import { Route, Routes,} from "react-router-dom";
+import ProfilePage from "./components/ProfilePage";
+import "./App.css"
 const App = () => {
   return (
-    <LoginPage/>
-    // <Router>
-    //   <Route exact path="/" component={LoginPage} />
-    //   <Route path="/profilePage" component={ProfilePage} />
-    // </Router>
-  )
+    // <LoginPage/>
+      <Routes>
+        <Route exact path="/" element={<LoginPage/>} />
+        <Route path="/profilePage" element={<ProfilePage/>} />
+      </Routes>
+  
+  );
 }
-
 export default App;

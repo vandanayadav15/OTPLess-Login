@@ -1,6 +1,11 @@
+
+import React from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function App() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const script = document.createElement("script");
 
@@ -10,48 +15,16 @@ export default function App() {
 
     document.body.appendChild(script);
     window.otpless = (otplessUser) => {
-      console.log(JSON.stringify(otplessUser));
+      let data=JSON.stringify(otplessUser);
+      console.log(data)
+      // data.email.name="vanda"
+      // Example: Navigating to another page after successful authentication
+      navigate("/profilepage",{ state: {data:data} });
     };
-  }, []);
+  }, [navigate]);
 
   return <div id="otpless-login-page" />;
 }
 
 
 
-// import React, { useEffect, useState } from "react";
-// import { Link} from "react-router-dom";
-
-// const LoginPage = () => {
-//   const [loginDetails, setLoginDetails] = useState(null);
-
-//   useEffect(() => {
-//     const script = document.createElement("script");
-
-//     script.src = "https://otpless.com/auth.js";
-//     script.cid = "0ZX9N7GD18UJH5QTU3G9KJ4BB7KFO8JZ";
-//     script.async = true;
-
-//     document.body.appendChild(script);
-//     window.otpless = (otplessUser) => {
-//       console.log(JSON.stringify(otplessUser));
-//       setLoginDetails(otplessUser);
-//     };
-//   }, []);
-//   return (
-//       <div id="otpless-login-page">
-//       <div>
-//         <h1>Login Page</h1>
-//         {loginDetails && (
-//           <div>
-//             <h2>Login Details:</h2>
-//             <pre>{JSON.stringify(loginDetails, null, 2)}</pre>
-//             <Link to={{ pathname: "/profilePage", state: { loginDetails } }}/>
-//           </div>
-//         )}
-//       </div>
-//       </div>
-//   );
-// };
-
-// export default LoginPage;
