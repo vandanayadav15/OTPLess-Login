@@ -9,6 +9,7 @@ const ProfilePage = () => {
   return (
     <div>
       <h1 style={{ color: "blue" }}>Login Details</h1>
+      <h2 style={{ color: "white" }}>Name : {convertData.email.name}</h2>
       <h2 style={{ color: "white" }}>Email : {convertData.email.email}</h2>
       <h2 style={{ color: "white" }}>
         Mobile Number : {convertData.mobile.number}
